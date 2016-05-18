@@ -14,7 +14,7 @@ namespace PotapanjeBrodova
         }
     
     public Polje UputiPucanj() {
-            Orjentacija o = DajOrijentaciju();
+            Orijentacija o = DajOrijentaciju();
             var liste = DajPoljaUNastavku(o);
             if (liste.Count() == 1)
                 return liste.First().First();
@@ -24,16 +24,18 @@ namespace PotapanjeBrodova
 
             throw new NotImplementedException();
         }
-        private Orjentacija DajOrijentaciju() {
+        private Orijentacija DajOrijentaciju() {
             if (pogođenaPolja[0].Redak == pogođenaPolja[1].Redak)
-                return Orijentacija.Vertikalno;
+                return Orijentacija.Horizontalno;
+            return Orijentacija.Vertikalno;
+
         }
-        private IEnumerable<IEnumerable<Polje>> DajPoljaUNastavku(Orjentacija orjentacija) {
+        private IEnumerable<IEnumerable<Polje>> DajPoljaUNastavku(Orijentacija orjentacija) {
 
             switch (orjentacija) {
-                case Orjentacija.Vertikalno:
+                case Orijentacija.Vertikalno:
                     return DajPoljaUNastavku(Smjer.Gore, Smjer.Dolje);
-                case Orjentacija.Horizontalno:
+                case Orijentacija.Horizontalno:
                     return DajPoljaUNastavku(Smjer.Lijevo, Smjer.Desno);
                 default:
                     throw new NotImplementedException();
@@ -45,13 +47,13 @@ namespace PotapanjeBrodova
             List<IEnumerable<Polje>> liste = new List<IEnumerable<Polje>>();
             int redak0 = pogođenaPolja[0].Redak;
             int stupac0 = pogođenaPolja[0].Stupac;
-            var l1 = Mreža.DajPoljaUZadanomSmjeru(redak0, stupac0, smjer1);
+            var l1 = mreža.DajPoljaUZadanomSmjeru(redak0, stupac0, smjer1);
             if (l1.Count() > 0)
                 liste.Add(l1);
             int n = pogođenaPolja.Count() - 1;
             int redakN = pogođenaPolja[n].Redak;
             int stupacN = pogođenaPolja[n].Stupac;
-            var l2 = Mreža.DajPoljaUZadanomSmjeru(redak0, stupac0, smjer2);
+            var l2 = mreža.DajPoljaUZadanomSmjeru(redak0, stupac0, smjer2);
             if (l2.Count() > 0)
                 liste.Add(l2);
             return liste;
