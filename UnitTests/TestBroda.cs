@@ -8,49 +8,49 @@ namespace UnitTests
     public class TestBroda
     {
         [TestMethod]
-        public void Brod_GadajVraćaPromasajZaPoljeKojeNijeUBrodu()
+        public void Brod_GađajVraćaPromašajZaPoljeKojeNijeUBrodu()
         {
             Polje[] polja = { new Polje(1, 2), new Polje(1, 3), new Polje(1, 4) };
             Brod b = new Brod(polja);
-            Assert.AreEqual(RezultatGadanja.Promasaj, b.Gadaj(new Polje(2, 3)));
+            Assert.AreEqual(RezultatGađanja.Promašaj, b.Gađaj(new Polje(2, 3)));
         }
 
         [TestMethod]
-        public void Brod_GadajVraćaPogodakZaPoljeKojeJeUBrodu()
+        public void Brod_GađajVraćaPogodakZaPoljeKojeJeUBrodu()
         {
             Polje[] polja = { new Polje(1, 2), new Polje(1, 3), new Polje(1, 4) };
             Brod b = new Brod(polja);
-            Assert.AreEqual(RezultatGadanja.Pogodak, b.Gadaj(new Polje(1, 2)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, b.Gađaj(new Polje(1, 2)));
         }
 
         [TestMethod]
-        public void Brod_GadajVraćaPotonuceZaZadnjePoljeKojeJeUBrodu()
+        public void Brod_GađajVraćaPotonućeZaZadnjePoljeKojeJeUBrodu()
         {
             Polje[] polja = { new Polje(1, 2), new Polje(1, 3), new Polje(1, 4) };
             Brod b = new Brod(polja);
-            Assert.AreEqual(RezultatGadanja.Pogodak, b.Gadaj(new Polje(1, 2)));
-            Assert.AreEqual(RezultatGadanja.Pogodak, b.Gadaj(new Polje(1, 3)));
-            Assert.AreEqual(RezultatGadanja.Potonuce, b.Gadaj(new Polje(1, 4)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, b.Gađaj(new Polje(1, 2)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, b.Gađaj(new Polje(1, 4)));
+            Assert.AreEqual(RezultatGađanja.Potonuće, b.Gađaj(new Polje(1, 3)));
         }
 
         [TestMethod]
-        public void Brod_GadajVraćaPogodakZaZadnjePoljeKojeJePonovnoPogođeno()
+        public void Brod_GađajVraćaPogodakZaPoljeKojeJePonovnoPogođeno()
         {
             Polje[] polja = { new Polje(1, 2), new Polje(1, 3), new Polje(1, 4) };
             Brod b = new Brod(polja);
-            Assert.AreEqual(RezultatGadanja.Pogodak, b.Gadaj(new Polje(1, 2)));
-            Assert.AreEqual(RezultatGadanja.Pogodak, b.Gadaj(new Polje(1, 2)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, b.Gađaj(new Polje(1, 2)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, b.Gađaj(new Polje(1, 2)));
         }
 
         [TestMethod]
-        public void Brod_GadajVraćaPotonuceZaZadnjePoljeKojePonovnoGađano()
+        public void Brod_GađajVraćaPotonućeZaZadnjePoljeKojeJePonovnoGađano()
         {
             Polje[] polja = { new Polje(1, 2), new Polje(1, 3), new Polje(1, 4) };
             Brod b = new Brod(polja);
-            Assert.AreEqual(RezultatGadanja.Pogodak, b.Gadaj(new Polje(1, 2)));
-            Assert.AreEqual(RezultatGadanja.Pogodak, b.Gadaj(new Polje(1, 4)));
-            Assert.AreEqual(RezultatGadanja.Potonuce, b.Gadaj(new Polje(1, 3)));
-            Assert.AreEqual(RezultatGadanja.Potonuce, b.Gadaj(new Polje(1, 4)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, b.Gađaj(new Polje(1, 2)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, b.Gađaj(new Polje(1, 4)));
+            Assert.AreEqual(RezultatGađanja.Potonuće, b.Gađaj(new Polje(1, 3)));
+            Assert.AreEqual(RezultatGađanja.Potonuće, b.Gađaj(new Polje(1, 4)));
         }
     }
 }

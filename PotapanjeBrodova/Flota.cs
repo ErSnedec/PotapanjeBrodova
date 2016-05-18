@@ -18,18 +18,18 @@ namespace PotapanjeBrodova
         {
             get { return brodovi.Count; }
         }
-        public RezultatGadanja Gadaj(Polje polje) {
-            foreach (Brod b in brodovi) {
-                b.Gadaj(polje);
-                var rezultat = b.Gadaj(polje);
-                if (b.Gadaj(polje) != RezultatGadanja.Promasaj){
 
+        public RezultatGađanja Gađaj(Polje polje)
+        {
+            foreach (Brod b in brodovi)
+            {
+                var rezultat = b.Gađaj(polje);
+                if (rezultat != RezultatGađanja.Promašaj)
                     return rezultat;
-                }
-                
             }
-            return RezultatGadanja.Promasaj;
+            return RezultatGađanja.Promašaj;
         }
+
         List<Brod> brodovi = new List<Brod>();
     }
 }

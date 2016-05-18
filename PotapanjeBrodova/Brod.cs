@@ -5,11 +5,13 @@ using System.Text;
 
 namespace PotapanjeBrodova
 {
-    public enum RezultatGadanja {
-        Promasaj,
+    public enum RezultatGađanja
+    {
+        Promašaj,
         Pogodak,
-        Potonuce,
+        Potonuće
     }
+
     public class Brod
     {
         public Brod(IEnumerable<Polje> polja)
@@ -21,18 +23,18 @@ namespace PotapanjeBrodova
         {
             get { return Polja.Count(); }
         }
-        public RezultatGadanja Gadaj(Polje p) {
 
-            if (Polja.Contains(p)) {
-                pogodenaPolja.Add(p);
-                if (pogodenaPolja.Count == Polja.Count())
-                    return RezultatGadanja.Potonuce;
-                return RezultatGadanja.Pogodak;
-            }
-            return RezultatGadanja.Promasaj;
+        public RezultatGađanja Gađaj(Polje p)
+        {
+            if (!Polja.Contains(p))
+                return RezultatGađanja.Promašaj;
+            pogođenaPolja.Add(p);
+            if (pogođenaPolja.Count == Polja.Count())
+                return RezultatGađanja.Potonuće;
+            return RezultatGađanja.Pogodak;
         }
 
         public readonly IEnumerable<Polje> Polja;
-        private HashSet<Polje> pogodenaPolja = new HashSet<Polje>();
+        private HashSet<Polje> pogođenaPolja = new HashSet<Polje>();
     }
 }
