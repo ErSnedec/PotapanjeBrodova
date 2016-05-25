@@ -68,7 +68,7 @@ namespace PotapanjeBrodova
                 return;
 
             pogođenaPolja.Add(zadnjeGađano);
-            pogođenaPolja.Sort((s, b) => a.Redak - b.Redak + a.Stupac - b.Stupac);
+            pogođenaPolja.Sort((a, b) => a.Redak - b.Redak + a.Stupac - b.Stupac);
             throw new NotImplementedException();
         }
 
